@@ -1,0 +1,40 @@
+var app = {
+  title : "Indecision Application",
+  description : "This application is going to help us list all our works one by one",
+  options: ['Ice Cream', 'Chocolate']
+}
+
+function isOptions(options){
+  if(options){
+    return(
+      <div>
+        <h3>Options</h3>
+        <ol>
+          <li>{options[0]}</li>
+          <li>{options[1]}</li>
+        </ol>
+      </div>
+    );
+  }
+    else {
+      return <h3>No options yet</h3>
+    }
+}
+const render(){
+  var template = (
+    <div>
+      <h1>{app.title}</h1>
+      <p>{app.description ? app.description : "Not yet added"}</p>
+      {isOptions(app.options)}
+    </div>
+  );
+  let count = 0;
+  var counter  = (
+    <div>
+      <h1>Count = {count}</h1>
+      <button onClick={() => {
+        count+=1;
+        render();
+      }>+</button>
+    </div>
+  )
